@@ -166,4 +166,20 @@ function example() {
     input.dispatchEvent(new Event('input'));
 }
 
+function testPrint(max = 127, min = 0) {
+    if (min > max) {
+        const c = min;
+        min = max;
+        max = c;
+    }
+
+    let text = '';
+    for (let i = min; i <= max; i++) {
+        text += String.fromCodePoint(i);
+    }
+
+    input.value = text;
+    input.dispatchEvent(new Event('input'));
+}
+
 renderText("");

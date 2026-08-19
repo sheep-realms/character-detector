@@ -224,5 +224,9 @@ const labels = {
     0x3000: {
         label: "□",
         title: "全角空格（Ideographic Space）"
-    }
+    },
+    0xFEFF: {
+        label: "∅",
+        title: "零宽不折行空格（Zero Width No-Break Space）"
+    },
 };
