@@ -43,6 +43,11 @@ const rules = [
         title: "软连字符（Soft Hyphen）"
     },
     {
+        type: "confuse",
+        match: "ɑɖɗɠɡɢɣɥɦɨɪɭɱɲɳɴʀʂʌʍʏʐʙʜʟʮʯ",
+        title: "国际音标扩展（IPA Extensions）"
+    },
+    {
         type: "special",
         match: { range: [0x034F, 0x034F] },
         title: "组合字形连接符（Combining Grapheme Joiner）"
