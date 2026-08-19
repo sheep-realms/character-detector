@@ -161,4 +161,9 @@ function positionTooltip(event) {
     tooltip.style.top = `${Math.max(margin, top)}px`;
 }
 
+function example() {
+    input.value = `Ηеllο,\u2002Wоrld!\n本⼯具是⼀款可以帮你检查⽂本中或无意或有意插入的易混淆字符和不可见字符。\n绿⾊高亮字符为常见空白字符，例如空格“ ”。\n黄⾊高亮字符为易混淆字符，这些字符与常见字符很相似。\n红⾊高亮字符为异常字符，包括但不限于零宽空格\u200b、控制字符。\u0000\n\u202e。息信细详看查以可上本⽂亮高到停悬标鼠将`;
+    input.dispatchEvent(new Event('input'));
+}
+
 renderText("");

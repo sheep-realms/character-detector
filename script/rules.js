@@ -113,8 +113,8 @@ const rules = [
         title: "Unicode 补充私用区字符"
     },
     {
-        type: "special",
-        match: { range: [0x2E80, 0x2EFF] },
+        type: "confuse",
+        match: { range: [0x2F00, 0x2FD5] },
         title: "康熙部首（Kangxi Radicals）"
     },
     {
