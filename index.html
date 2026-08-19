@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Character Detector</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <main>
+        <h1>Character Detector</h1>
+
+        <section class="panel">
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-label">总字数</div>
+                    <div class="stat-value" id="totalCount">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">常见空白字符</div>
+                    <div class="stat-value" id="normalCount">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">易混淆字符</div>
+                    <div class="stat-value" id="confuseCount">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">异常字符</div>
+                    <div class="stat-value" id="specialCount">0</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <textarea id="input" placeholder="在此处输入文本..." spellcheck="false"></textarea>
+        </section>
+
+        <section class="panel">
+            <div id="output" class="output" aria-live="polite"></div>
+            <div class="legend">
+                <span class="legend-item">
+                    <span class="legend-swatch normal"></span>
+                    常见空白字符
+                </span>
+                <span class="legend-item">
+                    <span class="legend-swatch confuse"></span>
+                    易混淆字符
+                </span>
+                <span class="legend-item">
+                    <span class="legend-swatch special"></span>
+                    异常字符
+                </span>
+            </div>
+        </section>
+
+        <section class="panel">
+            <strong>匹配规则说明</strong>
+            <ul class="rules">
+                <li>匹配规则面向中文和英文使用环境设计，在其他语言环境下可能会有较多异常检出。</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <span>
+            ©<a href="https://github.com/sheep-realms" target="_blank">Sheep-realms</a>
+        </span>
+        <a href="https://github.com/sheep-realms/character-detector" target="_blank">GitHub</a>
+    </footer>
+
+    <div id="tooltip" class="char-tooltip" role="tooltip">
+        <div id="tooltipTitle" class="tooltip-title"></div>
+        <div id="tooltipGroup" class="tooltip-group"></div>
+        <div id="tooltipCode" class="tooltip-code"></div>
+    </div>
+
+    <script src="script/rules.js"></script>
+    <script src="script/labels.js"></script>
+    <script src="script/app.js"></script>
+</body>
+</html>
