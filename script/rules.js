@@ -126,6 +126,11 @@ const rules = [
         type: "special",
         match: { range: [0xFDD0, 0xFDEF] },
         title: "Unicode 非字符（Noncharacter）"
+    },
+    {
+        type: "special",
+        match: { codePoint: 0xFEFF },
+        title: "零宽不折行空格（Zero Width No-Break Space）"
     }
 ];
 
