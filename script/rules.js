@@ -131,6 +131,11 @@ const rules = [
         type: "special",
         match: { codePoint: 0xFEFF },
         title: "零宽不折行空格（Zero Width No-Break Space）"
+    },
+    {
+        type: "special",
+        match: /\p{M}/u,
+        title: "组合附加符号（Combining Mark）"
     }
 ];
 

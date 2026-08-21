@@ -11,6 +11,10 @@ function matchRule(rule, codePoint, char) {
         return codePoint === match;
     }
 
+    if (match instanceof RegExp) {
+        return match.test(char);
+    }
+
     if (match.codePoint !== undefined) {
         return codePoint === match.codePoint;
     }
