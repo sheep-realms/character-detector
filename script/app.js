@@ -54,6 +54,8 @@ function renderText(text) {
     let confuseCount = 0;
     let specialCount = 0;
     let totalCount = 0;
+    let matchSuggestions = new Set();
+    suggestionsElement.textContent = "";
 
     for (const char of text) {
         const codePoint = char.codePointAt(0);
@@ -74,6 +76,12 @@ function renderText(text) {
             specialCount++;
         }
 
+        if (Array.isArray(rule.suggestions)) {
+            rule.suggestions.forEach(e => {
+                matchSuggestions.add(e);
+            });
+        }
+
         const span = document.createElement("span");
         span.className = `char ${rule.type}`;
         span.dataset.title = labels[codePoint]?.title ?? rule.title ?? "";
@@ -89,6 +97,31 @@ function renderText(text) {
     normalCountElement.textContent = normalCount.toLocaleString();
     confuseCountElement.textContent = confuseCount.toLocaleString();
     specialCountElement.textContent = specialCount.toLocaleString();
+
+    if (matchSuggestions.size === 0) {
+        suggestionsElement.textContent = "（无）";
+        return;
+    }
+
+    matchSuggestions.forEach(e => {
+        renderSuggestionDetails(e);
+    });
+}
+
+function renderSuggestionDetails(name) {
+    if (suggestions[name] === undefined) return;
+    const suggestion = suggestions[name];
+
+    const details = document.createElement("details");
+    const summary = document.createElement("summary");
+    const content = document.createElement("div");
+
+    summary.textContent = suggestion.title;
+    content.textContent = suggestion.content;
+
+    details.appendChild(summary);
+    details.appendChild(content);
+    suggestionsElement.appendChild(details);
 }
 
 const input = document.querySelector("#input");
@@ -97,6 +130,8 @@ const totalCountElement = document.querySelector("#totalCount");
 const normalCountElement = document.querySelector("#normalCount");
 const confuseCountElement = document.querySelector("#confuseCount");
 const specialCountElement = document.querySelector("#specialCount");
+
+const suggestionsElement = document.querySelector("#suggestions");
 
 const tooltip = document.querySelector("#tooltip");
 const tooltipTitle = document.querySelector("#tooltipTitle");
@@ -166,7 +201,7 @@ function positionTooltip(event) {
 }
 
 function example() {
-    input.value = `Ηеllο,\u2002Wоrld!\n本⼯具是⼀款可以帮你检查⽂本中或无意或有意插入的易混淆字符和不可见字符。\n绿⾊高亮字符为常见空白字符，例如空格“ ”。\n黄⾊高亮字符为易混淆字符，这些字符与常见字符很相似。\n红⾊高亮字符为异常字符，包括但不限于零宽空格\u200b、控制字符。\u0000\n\u202e。息信细详看查以可上本⽂亮高到停悬标鼠将`;
+    input.value = `Ηеllο,\u2002Wоrld!\n本⼯具是⼀款可以帮你检查⽂本中或无意或有意插入的易混淆字符和不可见字符。\n绿⾊高亮字符为常见空白字符，例如空格“ ”\u06e3。\n黄⾊高亮字符为易混淆字符，这些字符与常见字符很相似。\n红⾊高亮字符为异常字符，包括但不限于零宽空格\u200b、控制字符。\u0000\n\u202e。息信细详看查以可上本⽂亮高到停悬标鼠将`;
     input.dispatchEvent(new Event('input'));
 }
 

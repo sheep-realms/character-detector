@@ -4,7 +4,8 @@ const rules = [
     {
         type: "special",
         match: { range: [0x0000, 0x0008] },
-        title: "ASCII 控制字符"
+        title: "ASCII 控制字符",
+        suggestions: ["control_char"]
     },
     {
         type: "normal",
@@ -14,7 +15,8 @@ const rules = [
     {
         type: "special",
         match: { range: [0x000E, 0x001F] },
-        title: "ASCII 控制字符"
+        title: "ASCII 控制字符",
+        suggestions: ["control_char"]
     },
     {
         type: "normal",
@@ -29,7 +31,8 @@ const rules = [
     {
         type: "special",
         match: { range: [0x007F, 0x009F] },
-        title: "C1 控制字符"
+        title: "C1 控制字符",
+        suggestions: ["control_char"]
     },
     {
         type: "confuse",
@@ -45,7 +48,8 @@ const rules = [
     {
         type: "confuse",
         match: "ɑɖɗɠɡɢɣɥɦɨɪɭɱɲɳɴʀʂʌʍʏʐʙʜʟʮʯ",
-        title: "国际音标扩展（IPA Extensions）"
+        title: "国际音标扩展（IPA Extensions）",
+        suggestions: ['latin_replace']
     },
     {
         type: "special",
@@ -55,7 +59,8 @@ const rules = [
     {
         type: "confuse",
         match: "ͲͳͶͷͿΆΈΉΊΌΎΑΒΕΖΗΙΚΛΜΝΟΡΤΥΧΪΫγκνορσυχόϒϓϔϘϙϜϝϲϳϹϺϻἈἉἊἋἌἍἎἏἘἙἚἛἜἝἨἩἪἫἬἭἮἯἸἹἺἻἼἽἾἿὀὁὂὃὄὅὈὉὊὋὌὍὙὛὝὟὨὩὪὫὬὭὮὯὸόᾈᾉᾊᾋᾌᾍᾎᾏᾘᾙᾚᾛᾜᾝᾞᾟᾸᾹᾺΆᾼῈΈῊΉῌῘῙῚΊῨῩῪΎῬῸΌ",
-        title: "希腊字母和科普特字母（Greek and Coptic）"
+        title: "希腊字母和科普特字母（Greek and Coptic）",
+        suggestions: ['latin_replace']
     },
     {
         type: "special",
@@ -65,17 +70,20 @@ const rules = [
     {
         type: "confuse",
         match: "ЀЁЅІЇЈЌЍЎАВЕИЙКМНОРСТУХЪЬЭЮЯавеийкмнорстухъьяѐёѕіїјћќѝўѡѢѣѴѵѶѷѿҊҋҌҍҒғҚқҜҝҞҟҠҡҢңҤҥҪҫҬҭҮүҰұҲҳҺһҼҽҾҿӀӉӊӍӎӏӐӑӒӓӖӗӢӣӤӥӦӧӮӯӰӱӲӳӺӻӼӽӾӿ",
-        title: "西里尔字母（Cyrillic）"
+        title: "西里尔字母（Cyrillic）",
+        suggestions: ['latin_replace']
     },
     {
         type: "special",
         match: { range: [0x200B, 0x200F] },
-        title: "零宽格式控制字符"
+        title: "零宽格式控制字符",
+        suggestions: ["zero_width_space"]
     },
     {
         type: "special",
         match: { range: [0x202A, 0x202E] },
-        title: "双向文本控制字符"
+        title: "双向文本控制字符",
+        suggestions: ["reverse_text"]
     },
     {
         type: "special",
@@ -85,7 +93,8 @@ const rules = [
     {
         type: "special",
         match: { range: [0x2066, 0x206F] },
-        title: "双向文本与零宽控制字符"
+        title: "双向文本与零宽控制字符",
+        suggestions: ["reverse_text"]
     },
     {
         type: "special",
@@ -115,7 +124,8 @@ const rules = [
     {
         type: "confuse",
         match: { range: [0x2F00, 0x2FD5] },
-        title: "康熙部首（Kangxi Radicals）"
+        title: "康熙部首（Kangxi Radicals）",
+        suggestions: ["kangxi"]
     },
     {
         type: "special",
@@ -130,12 +140,14 @@ const rules = [
     {
         type: "special",
         match: { codePoint: 0xFEFF },
-        title: "零宽不折行空格（Zero Width No-Break Space）"
+        title: "零宽不折行空格（Zero Width No-Break Space）",
+        suggestions: ["zero_width_space"]
     },
     {
         type: "special",
         match: /\p{M}/u,
-        title: "组合附加符号（Combining Mark）"
+        title: "组合附加符号（Combining Mark）",
+        suggestions: ["combining_mark"]
     }
 ];
 
