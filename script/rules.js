@@ -109,17 +109,8 @@ const rules = [
     {
         type: "special",
         match: { range: [0xE000, 0xF8FF] },
-        title: "Unicode 私用区字符（Private Use Area）"
-    },
-    {
-        type: "special",
-        match: { range: [0xF0000, 0xFFFFD] },
-        title: "Unicode 补充私用区字符"
-    },
-    {
-        type: "special",
-        match: { range: [0x100000, 0x10FFFD] },
-        title: "Unicode 补充私用区字符"
+        title: "Unicode 私用区字符（Private Use Area）",
+        suggestions: ["private_use_area"]
     },
     {
         type: "confuse",
@@ -148,7 +139,19 @@ const rules = [
         match: /\p{M}/u,
         title: "组合附加符号（Combining Mark）",
         suggestions: ["combining_mark"]
-    }
+    },
+    {
+        type: "special",
+        match: { range: [0xF0000, 0xFFFFD] },
+        title: "Unicode 补充私用区字符",
+        suggestions: ["private_use_area"]
+    },
+    {
+        type: "special",
+        match: { range: [0x100000, 0x10FFFD] },
+        title: "Unicode 补充私用区字符",
+        suggestions: ["private_use_area"]
+    },
 ];
 
 for (let plane = 0; plane <= 0x10; plane++) {
