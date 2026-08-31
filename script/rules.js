@@ -136,6 +136,16 @@ const rules = [
     },
     {
         type: "special",
+        match: { range: [0xFFF9, 0xFFFB] },
+        title: "互线性注释（Interlinear annotation）"
+    },
+    {
+        type: "special",
+        match: { range: [0xFFFC, 0xFFFD] },
+        title: "替换字符（Replacement characters）"
+    },
+    {
+        type: "special",
         match: /\p{M}/u,
         title: "组合附加符号（Combining Mark）",
         suggestions: ["combining_mark"]
